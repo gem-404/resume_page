@@ -1,23 +1,22 @@
+
 /* Base Theme Variables for Light Mode */
 :root {
     --bg-color: #f0f4f8;  /* Softer, neutral background */
     --text-color: #2d2d2d;  /* Darker text for readability */
-    --card-bg-color: #ffffff;  /* Clean white for card backgrounds */
-    --border-color: #e0e0e0;  /* Light grey borders for subtle separation */
-    --navbar-bg-color: #ffffff;  /* Light background for the navbar */
+    --card-bg-color: rgba(255, 255, 255, 0.7);  /* Slight transparency for glass effect */
+    --border-color: rgba(255, 255, 255, 0.3);  /* Light glassy border */
+    --navbar-bg-color: rgba(255, 255, 255, 0.85);  /* Light background for the navbar */
     --navbar-text-color: #333333;  /* Darker text in the navbar */
-    --section-bg-color: rgba(255, 255, 255, 0.9);  /* Subtle, slightly transparent sections */
 }
 
 /* Dark Mode Overrides */
 .dark-mode {
     --bg-color: #1a1a1a;
     --text-color: #f5f5f5;
-    --card-bg-color: #2b2b2b;
-    --border-color: #444444;
-    --navbar-bg-color: #111;
-    --navbar-text-color: #ffffff;
-    --section-bg-color: rgba(50, 50, 50, 0.8);
+    --card-bg-color: rgba(40, 40, 40, 0.75);  /* Slight transparency for glass effect */
+    --border-color: rgba(255, 255, 255, 0.2);  /* Lighter border in dark mode */
+    --navbar-bg-color: rgba(20, 20, 20, 0.85);
+    --navbar-text-color: #808080;  /* Lighter text color for better contrast */
 }
 
 /* Global Styles */
@@ -38,7 +37,8 @@ body {
     background-color: var(--navbar-bg-color);
     color: var(--navbar-text-color);
     padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);  /* Glassmorphism blur */
 }
 
 .navbar a {
@@ -65,20 +65,22 @@ body {
     background-color: #0088cc;
 }
 
-/* Section Card Styles */
+/* Section Card Styles - Glassmorphic Effect */
 .section {
     background-color: var(--card-bg-color);
     border-radius: 15px;
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;  /* Limit width for each section card */
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);  /* Neo shadow */
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border-color);  /* Light glassy border */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);  /* Soft shadow */
+    backdrop-filter: blur(10px);  /* Frosted glass effect */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .section:hover {
     transform: translateY(-5px);
-    box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.15), -12px -12px 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .section h2 {
@@ -109,45 +111,47 @@ body {
     border-color: #fff;
 }
 
-/* Skills List Styling */
+/* Skills List Styling - Modern Badges */
 .skills-list {
     list-style: none;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);  /* Two-column layout */
-    gap: 10px;
+    gap: 15px;
     margin-top: 15px;
     text-align: center;
 }
 
 .skills-list li {
     background: var(--card-bg-color);
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 10px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.7);
     transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 600;
 }
 
 .skills-list li:hover {
     transform: scale(1.05);
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.15), inset -4px -4px 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Project Cards */
+/* Project Cards - Enhanced Glassmorphic Effect */
 .project-card {
     background-color: var(--card-bg-color);
-    border: 1px solid var(--border-color);
     border-radius: 15px;
     padding: 20px;
     margin: 10px auto;
     max-width: 400px;  /* Reduce width */
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border-color);  /* Light border for glass effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+    backdrop-filter: blur(10px);  /* Glass effect */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.15), -12px -12px 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .project-card h3 {
@@ -191,17 +195,4 @@ footer {
     background-color: var(--navbar-bg-color);
     color: var(--navbar-text-color);
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1.2);
-    }
-    50% {
-        transform: scale(1.25);  /* Slightly larger */
-    }
-}
-
-.pulse {
-    animation: pulse 2s infinite;
 }
